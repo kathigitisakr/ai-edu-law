@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="el" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — ΤΝ & Εκπαιδευτικό Δίκαιο</title>
+  <meta name="description" content="Διαδραστικό quiz αυτοαξιολόγησης: δοκιμάστε τις γνώσεις σας σε case studies και ερωτήσεις πολλαπλής επιλογής.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚖️</span>
+        <span>ΤΝ & Εκπ. Δίκαιο</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Αρχική</a>
+        <a href="legislation.html">Νομοθεσία</a>
+        <a href="qa.html">Q&A</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="scenarios.html">Σενάρια</a>
+        <a href="resources.html">Πηγές</a>
+        <a href="glossary.html">Γλωσσάρι</a>
+        <a href="timeline.html">Χρονολόγιο</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Εναλλαγή θέματος">☀️</button>
+      <button class="hamburger" aria-label="Μενού">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ΚΥΡΙΟ ΠΕΡΙΕΧΟΜΕΝΟ ===== -->
+  <main class="page-content">
+    <div class="container">
+
+      <!-- Τίτλος -->
+      <div style="margin-bottom: 1.5rem;" class="fade-in">
+        <h1 style="margin-bottom: 0.5rem;">📝 Quiz Αυτοαξιολόγησης</h1>
+        <p style="max-width: 700px;">
+          18 ερωτήσεις — σενάρια πρακτικής εφαρμογής και ερωτήσεις γνώσεων.
+          Μετά από κάθε απάντηση, λαμβάνετε <strong>αναλυτικό feedback</strong>
+          με εξήγηση και νομική παραπομπή.
+        </p>
+        <p id="last-score" class="text-sm text-muted" style="display:none; margin-top:0.5rem;"></p>
+      </div>
+
+      <!-- QUIZ CONTAINER -->
+      <div id="quiz-container" class="fade-in" style="max-width: 800px;">
+
+        <!-- Progress bar -->
+        <div class="quiz-progress">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Μετρητής ερωτήσεων -->
+        <p id="quiz-question-counter" class="text-sm text-muted mb-2">Ερώτηση 1 / 18</p>
+
+        <!-- Ερώτηση -->
+        <div class="card" style="margin-bottom: 1.5rem; padding: 2rem;">
+          <p id="quiz-question-text" style="font-size: 1.05rem; font-weight: 600; line-height: 1.7; color: var(--text-primary);"></p>
+        </div>
+
+        <!-- Επιλογές -->
+        <div id="quiz-options" style="margin-bottom: 1rem;">
+          <!-- Γεμίζει δυναμικά -->
+        </div>
+
+        <!-- Feedback -->
+        <div id="quiz-feedback" class="quiz-feedback">
+          <!-- Εμφανίζεται μετά την απάντηση -->
+        </div>
+
+        <!-- Κουμπί Επόμενη -->
+        <div style="text-align: right; margin-top: 1.5rem;">
+          <button id="quiz-next" class="btn btn-primary" style="display: none;">Επόμενη →</button>
+        </div>
+
+      </div>
+
+      <!-- ΑΠΟΤΕΛΕΣΜΑΤΑ (αρχικά κρυφά) -->
+      <div id="quiz-results" style="display: none; max-width: 800px;">
+        <!-- Γεμίζει δυναμικά -->
+      </div>
+
+      <!-- Πληροφορίες -->
+      <div class="fade-in" style="margin-top: 3rem; padding: 1.5rem; border: 1px dashed var(--border-color); border-radius: var(--radius-md); max-width: 800px;">
+        <h4 style="margin-bottom: 0.5rem;">💡 Πληροφορίες</h4>
+        <p class="text-sm text-muted">
+          Οι ερωτήσεις εμφανίζονται σε <strong>τυχαία σειρά</strong> κάθε φορά.
+          Μετά από κάθε απάντηση, εμφανίζεται η σωστή απάντηση με αναλυτική εξήγηση
+          και νομική παραπομπή. Το τελικό score αποθηκεύεται τοπικά στο browser σας.
+        </p>
+        <p class="text-sm text-muted mt-1">
+          <strong>Επεκτασιμότητα:</strong> Για προσθήκη νέων ερωτήσεων, επεξεργαστείτε τον πίνακα
+          <code>quizData</code> στο αρχείο <code>js/quiz.js</code>.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+   © 2026 Συμπληρωματικό Υλικό  Εργασίας για το ΠΜΣ Διοίκηση Εκπαίδευσης — Πανεπιστήμιο Πατρών<br>
+        <span class="text-xs">Ο ιστότοπος αυτός δεν αποτελεί νομική συμβουλή.Είναι απλά εργασία Φοιτητών</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" aria-label="Πίσω στην κορυφή">↑</button>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

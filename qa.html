@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="el" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q&A — Ερωτήσεις Εκπαιδευτικών — ΤΝ & Εκπαιδευτικό Δίκαιο</title>
+  <meta name="description" content="Πρακτικές ερωτήσεις και απαντήσεις για τον μάχιμο εκπαιδευτικό σχετικά με τη χρήση ΤΝ στο σχολείο.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚖️</span>
+        <span>ΤΝ & Εκπ. Δίκαιο</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Αρχική</a>
+        <a href="legislation.html">Νομοθεσία</a>
+        <a href="qa.html" class="active">Q&A</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="scenarios.html">Σενάρια</a>
+        <a href="resources.html">Πηγές</a>
+        <a href="glossary.html">Γλωσσάρι</a>
+        <a href="timeline.html">Χρονολόγιο</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Εναλλαγή θέματος">☀️</button>
+      <button class="hamburger" aria-label="Μενού">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ΚΥΡΙΟ ΠΕΡΙΕΧΟΜΕΝΟ ===== -->
+  <main class="page-content">
+    <div class="container">
+
+      <!-- Τίτλος σελίδας -->
+      <div style="margin-bottom: 2rem;" class="fade-in">
+        <h1 style="margin-bottom: 0.5rem;">❓ Ερωτήσεις & Απαντήσεις</h1>
+        <p style="max-width: 700px;">
+          Πρακτικές ερωτήσεις που αντιμετωπίζει κάθε εκπαιδευτικός σχετικά με τη χρήση ΤΝ στο σχολείο.
+          Κάθε απάντηση περιλαμβάνει <strong>νομική παραπομπή</strong> στο αντίστοιχο κανονιστικό κείμενο.
+        </p>
+      </div>
+
+      <!-- Κατηγορίες (δυναμικό render από qa.js) -->
+      <div id="qa-categories" class="filter-bar fade-in">
+        <!-- Γεμίζει δυναμικά -->
+      </div>
+
+      <!-- Αναζήτηση -->
+      <div class="search-wrapper fade-in">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="qa-search" class="search-input"
+               placeholder="Αναζήτηση ερώτησης ή απάντησης...">
+      </div>
+
+      <!-- Μετρητής -->
+      <p class="text-sm text-muted fade-in" style="margin-bottom: 1.5rem;">
+        <strong id="qa-count" class="text-gold">0</strong> ερωτήσεις
+      </p>
+
+      <!-- Αποτελέσματα (accordion) -->
+      <div id="qa-results">
+        <!-- Γεμίζει δυναμικά από qa.js -->
+      </div>
+
+      <!-- Πρόσκληση -->
+      <div class="fade-in" style="margin-top: 3rem; padding: 1.5rem; border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+        <h4 style="margin-bottom: 0.5rem;">💡 Δεν βρήκατε αυτό που ψάχνετε;</h4>
+        <p class="text-sm text-muted">
+          Αυτός ο κατάλογος ενημερώνεται τακτικά. Αν έχετε ερώτημα που δεν καλύπτεται,
+          μπορείτε να ανατρέξετε στη σελίδα <a href="legislation.html">Νομοθεσία</a>
+          για αναλυτική αναζήτηση νόμων ή στο <a href="glossary.html">Γλωσσάρι</a>
+          για επεξήγηση ορολογίας.
+        </p>
+        <p class="text-sm text-muted mt-1">
+          <strong>Επεκτασιμότητα:</strong> Για προσθήκη νέας ερώτησης, επεξεργαστείτε τον πίνακα
+          <code>qaData</code> στο αρχείο <code>js/qa.js</code>.
+        </p>
+      </div>
+
+      <!-- Σημαντική σημείωση -->
+      <div class="card card-accent fade-in" style="margin-top: 2rem; border-left-color: var(--red);">
+        <h4 style="margin-bottom: 0.5rem; color: var(--red);">⚠️ Σημαντική σημείωση</h4>
+        <p class="text-sm text-muted">
+          Οι παραπάνω απαντήσεις αποτελούν γενική ενημέρωση βάσει του ισχύοντος νομικού πλαισίου
+          (Μάρτιος 2026) και <strong>δεν υποκαθιστούν εξειδικευμένη νομική συμβουλή</strong>.
+          Για συγκεκριμένα ζητήματα του ιδρύματός σας, συμβουλευτείτε τον Υπεύθυνο Προστασίας
+          Δεδομένων (DPO) ή εξειδικευμένο νομικό σύμβουλο.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+   © 2026 Συμπληρωματικό Υλικό  Εργασίας για το ΠΜΣ Διοίκηση Εκπαίδευσης — Πανεπιστήμιο Πατρών<br>
+        <span class="text-xs">Ο ιστότοπος αυτός δεν αποτελεί νομική συμβουλή.Είναι απλά εργασία Φοιτητών</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" aria-label="Πίσω στην κορυφή">↑</button>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/qa.js"></script>
+</body>
+</html>
